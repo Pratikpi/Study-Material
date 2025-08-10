@@ -71,11 +71,31 @@ dec = f.decrypt(enc)
 ---
 
 ## 8. Common Interview Questions
-- How to ensure real-time delivery?
-- How to scale for millions of users?
-- How to implement end-to-end encryption?
-- How to handle offline users?
-- How to support group chats?
+
+### How to ensure real-time delivery?
+- Use WebSocket connections for persistent, low-latency communication.
+- Employ message queues for reliability and retry logic in case of failures.
+
+### How to scale for millions of users?
+- Partition users across multiple servers (sharding).
+- Use distributed databases and load balancers.
+- Employ horizontal scaling for stateless components.
+
+### How to implement end-to-end encryption?
+- Encrypt messages on the client before sending.
+- Use public/private key pairs for secure key exchange.
+- Ensure only sender and recipient can decrypt messages.
+
+### How to handle offline users?
+- Store undelivered messages in a database.
+- Send push notifications to offline users.
+- Deliver messages when the user comes online.
+
+### How to support group chats?
+- Maintain group metadata (members, admins) in a database.
+- Broadcast messages to all group members.
+- Handle group-specific encryption and message delivery logic.
+
 
 ---
 
@@ -86,8 +106,10 @@ dec = f.decrypt(enc)
 
 ## 10. Tips for Interviews
 - Draw architecture and data flow diagrams
-- Discuss WebSocket, encryption, offline support
-- Mention trade-offs (latency, security, reliability)
+- Discuss **WebSocket**: Explain how WebSocket enables persistent, bidirectional connections for real-time message delivery, reducing latency compared to traditional HTTP polling.
+- Discuss **encryption**: Describe the importance of end-to-end encryption for user privacy, how messages are encrypted on the client side, and only decrypted by the intended recipient.
+- Discuss **offline support**: Outline strategies for handling offline users, such as storing undelivered messages and sending push notifications to ensure message delivery when users reconnect.
+- Mention **trade-offs**: Address the balance between low latency (real-time delivery), strong security (encryption overhead), and high reliability (message replication and retries), and how optimizing one may impact the others.
 - Walk through message delivery flows
 
 ---

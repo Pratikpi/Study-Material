@@ -128,10 +128,15 @@ def redirect(short_code):
 
 ## 10. Tips for Interviews
 - Draw architecture diagrams
-- Discuss trade-offs (DB choice, code generation)
-- Mention edge cases (collisions, expiry)
 - Walk through example flows
-- Suggest improvements (analytics, abuse prevention)
+- **Discuss trade-offs (DB choice, code generation):**  
+    Choosing between SQL and NoSQL databases impacts scalability, consistency, and complexity. SQL offers strong consistency and easy relational queries, while NoSQL (like Redis or DynamoDB) provides high scalability and low latency for key-value lookups. For code generation, using random codes is simple but may risk collisions, while sequential or hash-based codes can be more predictable or require extra logic to avoid duplicates.
+
+- **Mention edge cases (collisions, expiry):**  
+    Collisions can occur if two URLs generate the same short code, especially with random or hash-based methods. Always check for existing codes before assignment. Expiry is another edge case—expired URLs should not be accessible, so ensure proper cleanup and error handling for expired or deleted entries.
+
+- **Suggest improvements (analytics, abuse prevention):**  
+    Enhance analytics by tracking detailed usage stats (e.g., geolocation, device type) and providing user dashboards. To prevent abuse, implement rate limiting, CAPTCHA, and URL validation to block spam or malicious links. Regularly monitor and audit system activity for suspicious behavior.
 
 ---
 

@@ -66,10 +66,17 @@ def check_win(board):
 ---
 
 ## 8. Common Interview Questions
-- How to detect win/draw efficiently?
-- How to implement computer opponent?
-- How to scale for online play?
-- How to handle invalid moves?
+- **How to detect win/draw efficiently?**  
+    Use simple loops to check all rows, columns, and diagonals after each move. For a 3x3 board, this is fast (constant time). You can also keep counters for each row, column, and diagonal to update and check in O(1) time per move.
+
+- **How to implement computer opponent?**  
+    Start with a random move selector for simplicity. For a smarter AI, use the Minimax algorithm to evaluate all possible moves and pick the optimal one. Alpha-beta pruning can optimize Minimax for faster decisions.
+
+- **How to scale for online play?**  
+    Use a server to manage game sessions and player states. Each game can be represented as a resource (e.g., in a database). Use WebSockets or polling for real-time updates between clients and server.
+
+- **How to handle invalid moves?**  
+    Validate each move on the server or in the game engine before updating the board. Reject moves to already occupied cells or moves made out of turn, and return an error or prompt the user to try again.
 
 ---
 
@@ -80,8 +87,11 @@ def check_win(board):
 
 ## 10. Tips for Interviews
 - Draw architecture and board diagrams
-- Discuss win detection, AI
-- Mention trade-offs (simplicity, scalability)
+- **Discuss win detection, AI:**  
+    Explain how win detection works by checking all rows, columns, and diagonals after each move. For AI, describe approaches like random move selection for simplicity and the Minimax algorithm for optimal play, including possible optimizations like alpha-beta pruning.
+
+- **Mention trade-offs (simplicity, scalability):**  
+    Highlight the trade-off between keeping the implementation simple (easier to build and maintain) versus adding features for scalability (such as supporting online multiplayer, which requires server infrastructure and real-time communication).
 - Walk through move/result flows
 
 ---

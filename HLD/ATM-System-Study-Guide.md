@@ -70,7 +70,6 @@ else:
 ---
 
 ## 8. Common Interview Questions
-### Answers
 
 **How to handle transaction failures?**
 - Implement ACID properties for all transactions to ensure atomicity and consistency.
@@ -105,9 +104,12 @@ else:
 
 ## 10. Tips for Interviews
 - Draw architecture and data flow diagrams
-- Discuss transaction safety, error handling
-- Mention trade-offs (security, reliability)
 - Walk through withdrawal/deposit flows
+- Discuss transaction safety, error handling  
+  Transaction safety ensures that all ATM operations (like withdrawals, deposits, or transfers) are completed fully or not at all. This is often achieved using the ACID properties (Atomicity, Consistency, Isolation, Durability) in database transactions. Error handling involves detecting and managing issues such as network failures, incorrect PIN entries, or insufficient funds. Proper error handling prevents data corruption and provides clear feedback to users.
+
+- Mention trade-offs (security, reliability)  
+  ATM systems must balance security and reliability. Strong security measures (like encryption, multi-factor authentication, and strict access controls) protect against fraud and unauthorized access but may introduce complexity or slow down transactions. High reliability ensures the ATM is available and accurate, but redundancy and failover mechanisms can increase costs. Designing an ATM system involves making trade-offs between these factors to meet business and user needs.
 
 ---
 

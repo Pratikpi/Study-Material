@@ -143,7 +143,6 @@ class ConsistentHashRing:
 - Discuss trade-offs (load balancing vs. complexity)
   - **Load Balancing:** Consistent hashing helps distribute data evenly across nodes, reducing hotspots and improving scalability. When nodes are added or removed, only a small portion of keys need to be remapped, minimizing disruption.
   - **Complexity:** Implementing consistent hashing introduces additional complexity. It requires careful handling of hash functions, virtual nodes, and edge cases (like node failures). Debugging and maintaining such systems can be more challenging compared to simpler hashing schemes.
-
 - Mention real-world use cases (distributed cache, sharded DB)
   - **Distributed Cache:** Systems like Memcached use consistent hashing to distribute cached objects across multiple servers. This ensures that cache lookups remain efficient even as servers are added or removed.
   - **Sharded Database:** Databases such as Cassandra and DynamoDB use consistent hashing to partition data across nodes. This allows for horizontal scaling and high availability, as data can be redistributed with minimal impact when the cluster

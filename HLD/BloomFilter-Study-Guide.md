@@ -127,7 +127,6 @@ class BloomFilter:
 - Walk through an example with the interviewer
 - Discuss trade-offs (accuracy vs. memory)
   Bloom filters are space-efficient data structures used to test whether an element is a member of a set. The main trade-off is between memory usage and accuracy. Using less memory increases the probability of false positives (incorrectly reporting that an item is in the set), while allocating more memory reduces this probability. Bloom filters never produce false negatives, but you must balance memory constraints with acceptable error rates for your application.
-
 - Mention real-world use cases (web cache, DB indexing)
   Bloom filters are widely used in scenarios where quick membership checks are needed and some false positives are acceptable. For example, web caches use Bloom filters to check if a URL is cached before performing expensive lookups. Databases use them for indexing and to avoid unnecessary disk reads by quickly checking if a record might exist. Other use cases include spell checkers, network security, and
 

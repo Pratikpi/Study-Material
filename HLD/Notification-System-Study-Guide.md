@@ -63,11 +63,20 @@ graph TD
 ---
 
 ## 8. Common Interview Questions
-- How to scale notification delivery?
-- How to support multiple channels?
-- How to personalize notifications?
-- How to handle failures and retries?
-- How to prevent notification spam?
+- **How to scale notification delivery?**  
+    Use distributed notification gateways, partition users across servers, and leverage message queues for buffering. Employ horizontal scaling and stateless services to handle high throughput.
+
+- **How to support multiple channels?**  
+    Abstract channel logic behind a unified interface. Implement separate gateways/services for each channel (push, email, SMS) and route notifications based on user preferences.
+
+- **How to personalize notifications?**  
+    Store user preferences and context in a database. Use templates with dynamic placeholders and fill them with user-specific data at send time.
+
+- **How to handle failures and retries?**  
+    Implement retry logic with exponential backoff for transient failures. Log failed attempts, monitor delivery status, and use dead-letter queues for persistent failures.
+
+- **How to prevent notification spam?**  
+    Apply rate limiting per user and per channel. Batch notifications when possible and respect user opt-in/out preferences to avoid excessive messaging.
 
 ---
 
@@ -78,8 +87,11 @@ graph TD
 
 ## 10. Tips for Interviews
 - Draw architecture and data flow diagrams
-- Discuss batching, personalization, retries
-- Mention trade-offs (speed, reliability, privacy)
+- Discuss batching, personalization, retries:  
+    Explain how batching groups multiple notifications to reduce load and improve efficiency, while personalization ensures each user receives relevant content. Describe retry mechanisms for failed deliveries, such as exponential backoff and dead-letter queues, to maximize reliability.
+
+- Mention trade-offs (speed, reliability, privacy):  
+    Highlight trade-offs between fast delivery (speed) and ensuring all notifications are delivered (reliability). Discuss how increased personalization and data storage can impact user privacy, and the need to balance user experience with compliance and security.
 - Walk through notification flows
 
 ---

@@ -68,10 +68,17 @@ class TrieNode:
 ---
 
 ## 8. Common Interview Questions
-- How to store and update suggestions efficiently?
-- How to personalize suggestions?
-- How to scale for millions of users?
-- How to handle new/rare queries?
+- **How to store and update suggestions efficiently?**  
+    Use a trie data structure to store queries for fast prefix lookup. Attach a min-heap or sorted list at each node to keep top suggestions. Update suggestions asynchronously based on query frequency and recent trends.
+
+- **How to personalize suggestions?**  
+    Maintain user-specific history and preferences. Blend global popular queries with personalized suggestions using ranking algorithms. Store user profiles and recent searches to adjust suggestions in real time.
+
+- **How to scale for millions of users?**  
+    Partition the trie and cache across multiple servers (sharding). Use distributed caching systems (like Redis or Memcached) for hot queries. Replicate data for high availability and use load balancers to distribute traffic.
+
+- **How to handle new/rare queries?**  
+    Fall back to substring or fuzzy matching when prefix matches are not found. Use machine learning models to predict relevant suggestions for unseen queries. Log rare queries for future analysis and possible inclusion in the suggestion set.
 
 ---
 
@@ -82,8 +89,11 @@ class TrieNode:
 
 ## 10. Tips for Interviews
 - Draw architecture and data flow diagrams
-- Discuss trie, cache, ranking
-- Mention trade-offs (memory vs speed)
+- **Discuss trie, cache, ranking:**  
+    Be ready to explain how a trie enables fast prefix-based lookups for suggestions, how a cache (like Redis) reduces latency by storing hot queries, and how ranking algorithms (using frequency, recency, or personalization) determine which suggestions to show first.
+
+- **Mention trade-offs (memory vs speed):**  
+    Highlight that storing all queries and suggestions in memory (trie, cache) increases speed but uses more memory. Discuss strategies like limiting trie depth, pruning low-frequency queries, or using approximate data structures to balance memory usage and performance.
 - Walk through query suggestion flows
 
 ---

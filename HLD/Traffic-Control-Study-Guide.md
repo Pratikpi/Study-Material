@@ -67,10 +67,17 @@ def next_state():
 ---
 
 ## 8. Common Interview Questions
-- How to adapt to changing traffic?
-- How to handle emergency overrides?
-- How to scale for many intersections?
-- How to ensure reliability?
+- **How to adapt to changing traffic?**  
+    Use sensors to collect real-time vehicle data and adjust signal timings dynamically. Implement adaptive algorithms that respond to traffic density and patterns.
+
+- **How to handle emergency overrides?**  
+    Integrate with emergency vehicle detection systems (e.g., siren sensors, radio signals). The controller should preempt normal cycles to give priority to emergency vehicles, then safely resume standard operation.
+
+- **How to scale for many intersections?**  
+    Partition the system by intersection or region. Use distributed controllers that communicate with a central monitoring system. Employ scalable messaging and data storage solutions.
+
+- **How to ensure reliability?**  
+    Design for redundancy with backup controllers and failover mechanisms. Monitor system health in real time and implement self-healing or alerting for failures.
 
 ---
 
@@ -81,8 +88,11 @@ def next_state():
 
 ## 10. Tips for Interviews
 - Draw architecture and state diagrams
-- Discuss scheduling, sensor integration
-- Mention trade-offs (fixed vs adaptive)
+- Discuss scheduling, sensor integration  
+    Explain how scheduling algorithms (fixed vs adaptive) determine light changes. Fixed scheduling uses preset intervals, while adaptive scheduling adjusts timings based on real-time sensor data. Sensor integration enables the system to detect vehicles and pedestrians, providing input for adaptive algorithms to optimize flow and reduce wait times.
+
+- Mention trade-offs (fixed vs adaptive)  
+    Fixed scheduling is simple and predictable but may cause unnecessary delays during low traffic. Adaptive scheduling improves efficiency by responding to actual traffic conditions but adds complexity and requires reliable sensor data and more sophisticated control logic.
 - Walk through light change flows
 
 ---

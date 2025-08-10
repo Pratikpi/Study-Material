@@ -74,13 +74,6 @@ def recommend(user_id):
 ---
 
 ## 8. Common Interview Questions
-- How to scale for millions of users?
-- How to handle video uploads and transcoding?
-- How to deliver low-latency streams globally?
-- How to recommend videos?
-- How to moderate content?
-
-### Answers
 
 **How to scale for millions of users?**
 - Use CDN (Content Delivery Network) to cache and deliver video content close to users.
@@ -116,8 +109,11 @@ def recommend(user_id):
 
 ## 10. Tips for Interviews
 - Draw architecture and data flow diagrams
-- Discuss CDN, adaptive streaming, scaling
-- Mention trade-offs (cost, latency, copyright)
+- Discuss CDN, adaptive streaming, scaling  
+    *A CDN (Content Delivery Network) caches and delivers video content from servers close to users, reducing latency and improving streaming quality. Adaptive streaming (using HLS/DASH) allows the client to switch video quality in real time based on network conditions, ensuring smooth playback. Scaling is achieved by distributing storage, using microservices, and auto-scaling infrastructure to handle millions of users and large data volumes.*
+
+- Mention trade-offs (cost, latency, copyright)  
+    *Design choices involve trade-offs: Using a global CDN and adaptive streaming improves user experience but increases operational costs. Lower latency may require more edge servers and aggressive caching, which can raise expenses. Copyright enforcement adds complexity and may impact upload latency due to content scanning and moderation requirements.*
 - Walk through upload and playback flows
 
 ---

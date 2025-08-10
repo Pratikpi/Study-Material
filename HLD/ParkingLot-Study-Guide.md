@@ -169,7 +169,6 @@ class ParkingLot:
 ---
 
 ## 9. Further Reading
-- [Parking Lot Design - LLD](https://leetcode.com/discuss/interview-question/object-oriented-design/124584/Design-a-Parking-Lot)
 - [System Design Primer](https://github.com/donnemartin/system-design-primer)
 - [OOD Patterns](https://refactoring.guru/design-patterns)
 

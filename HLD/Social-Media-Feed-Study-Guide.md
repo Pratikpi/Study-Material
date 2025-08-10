@@ -65,11 +65,20 @@ graph TD
 ---
 
 ## 8. Common Interview Questions
-- How to scale feed generation?
-- How to store and retrieve posts efficiently?
-- How to personalize feeds?
-- How to handle real-time updates?
-- How to moderate content?
+- **How to scale feed generation?**  
+    Use sharding (by user or post), caching (for hot feeds), and asynchronous processing (e.g., message queues) to distribute load. Consider push vs pull models for feed updates.
+
+- **How to store and retrieve posts efficiently?**  
+    Use a combination of databases: NoSQL for fast writes and flexible schema, and in-memory caches (like Redis) for quick retrieval. Index posts by user and timestamp.
+
+- **How to personalize feeds?**  
+    Apply ranking algorithms using factors like recency, user interests, engagement, and collaborative filtering. Store user preferences and activity history for better recommendations.
+
+- **How to handle real-time updates?**  
+    Implement WebSockets or long polling for instant updates. Use pub/sub systems to notify clients of new posts or interactions.
+
+- **How to moderate content?**  
+    Combine automated filters (e.g., ML models for detecting spam or abuse) with manual review workflows. Provide reporting tools and enforce privacy controls.
 
 ---
 
@@ -79,10 +88,17 @@ graph TD
 ---
 
 ## 10. Tips for Interviews
-- Draw architecture and data flow diagrams
-- Discuss feed generation, ranking, scaling
-- Mention trade-offs (push vs pull, DB choice)
-- Walk through post/feed flows
+- **Draw architecture and data flow diagrams:**  
+    Use diagrams (like Mermaid or whiteboard sketches) to visually represent system components (web/app servers, databases, feed generators, etc.) and how data moves between them. This helps interviewers quickly grasp your understanding of the system's structure and interactions.
+
+- **Discuss feed generation, ranking, scaling:**  
+    Explain how feeds are generated (push vs pull models), how posts are ranked (recency, engagement, personalization), and strategies for scaling (sharding, caching, asynchronous processing). Highlight how each approach impacts performance and user experience.
+
+- **Mention trade-offs (push vs pull, DB choice):**  
+    Compare push (precompute feeds) and pull (generate on demand) models, noting their pros and cons in terms of latency, storage, and complexity. Discuss database choices (SQL vs NoSQL, caching layers) and how they affect scalability, consistency, and development speed.
+
+- **Walk through post/feed flows:**  
+    Clearly describe the end-to-end flow: when a user creates a post, how it is stored, how followers' feeds are updated, and how notifications are sent. Use step-by-step examples to demonstrate your understanding of the system's operation.
 
 ---
 

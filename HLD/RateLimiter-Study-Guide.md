@@ -21,7 +21,9 @@ A rate limiter restricts how many requests a user or system can make in a given 
 
 ---
 
-## 4. Key Algorithms
+
+## 4. Key Algorithms and Diagrams
+
 ### Fixed Window
 - Count requests in a fixed interval (e.g., per minute)
 - Simple, but can allow bursts at window edges
@@ -30,30 +32,7 @@ A rate limiter restricts how many requests a user or system can make in a given 
 - Count requests in a moving time window
 - Smoother limiting, more accurate
 
-### Token Bucket
-- Tokens are added at a fixed rate; each request consumes a token
-- Allows bursts up to bucket size
-
-### Leaky Bucket
-- Requests are processed at a fixed rate; excess requests are queued or dropped
-
----
-
-
-## 5. Diagrams: Rate Limiting Algorithms
-
-### Token Bucket Algorithm
-```mermaid
-graph TD
-    TB[Token Bucket]
-    TB-->|Token|Request1
-    TB-->|Token|Request2
-    TB-->|Token|Request3
-    TB-->|No Token|Rejected
-    TB-->|Token refill|TB
-```
-
-### Sliding Window Algorithm
+#### Sliding Window Algorithm Diagram
 ```mermaid
 sequenceDiagram
     participant Client
@@ -67,7 +46,25 @@ sequenceDiagram
     Window->>Client: Allow/Reject based on count
 ```
 
-### Leaky Bucket Algorithm
+### Token Bucket
+- Tokens are added at a fixed rate; each request consumes a token
+- Allows bursts up to bucket size
+
+#### Token Bucket Algorithm Diagram
+```mermaid
+graph TD
+    TB[Token Bucket]
+    TB-->|Token|Request1
+    TB-->|Token|Request2
+    TB-->|Token|Request3
+    TB-->|No Token|Rejected
+    TB-->|Token refill|TB
+```
+
+### Leaky Bucket
+- Requests are processed at a fixed rate; excess requests are queued or dropped
+
+#### Leaky Bucket Algorithm Diagram
 ```mermaid
 graph TD
     LB[Leaky Bucket]
@@ -81,17 +78,7 @@ graph TD
 
 ---
 
-## 6. Example Walkthrough (Token Bucket)
-- Bucket size = 5, refill rate = 1 token/sec
-- At t=0, bucket has 5 tokens
-- 3 requests arrive: all accepted (tokens used)
-- 3 more requests: 2 accepted, 1 rejected (no token)
-- After 2 seconds, 2 tokens refilled
-
----
-
-
-## 7. Python Implementations
+## 5. Python Implementations
 
 ### Token Bucket
 ```python
@@ -156,6 +143,15 @@ class LeakyBucket:
 
 ---
 
+## 6. Example Walkthrough (Token Bucket)
+- Bucket size = 5, refill rate = 1 token/sec
+- At t=0, bucket has 5 tokens
+- 3 requests arrive: all accepted (tokens used)
+- 3 more requests: 2 accepted, 1 rejected (no token)
+- After 2 seconds, 2 tokens refilled
+
+---
+
 ## 8. Scaling for Production
 - **Per-user/IP buckets:** Use a map to track buckets per key
 - **Distributed systems:** Use Redis or Memcached for shared state
@@ -216,7 +212,6 @@ class LeakyBucket:
 ---
 
 ## 11. Further Reading
-- [Rate Limiting Algorithms](https://cloud.google.com/architecture/rate-limiting-apis)
 - [Token Bucket Algorithm](https://en.wikipedia.org/wiki/Token_bucket)
 - [System Design Primer](https://github.com/donnemartin/system-design-primer)
 
